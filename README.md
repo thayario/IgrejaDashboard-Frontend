@@ -10,7 +10,8 @@ Utiliza **Angular Material**, **RxJS** e comunicação via **HttpClient**.
 - Angular: 18.2.0 
 - Angular Material: 18.2.14  
 - RxJS: ~7.8.0  
-- TypeScript: ~5.5.2  
+- TypeScript: ~5.5.2
+- RouterModule: 18.2
 
 > Outras dependências são listadas no `package.json`.
 
