@@ -5,7 +5,7 @@ Utiliza **Angular Material**, **RxJS** e comunicação via **HttpClient**.
 
 ---
 
-## 📦 Dependências e Versões
+## Dependências e Versões
 
 - Angular: 18.2.0 
 - Angular Material: 18.2.14  
@@ -17,7 +17,7 @@ Utiliza **Angular Material**, **RxJS** e comunicação via **HttpClient**.
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 igreja-dashboard/
 ├── src/
 │ ├── app/
@@ -34,7 +34,7 @@ igreja-dashboard/
 ├── package.json
 └── tsconfig.json
 
-## ⚙️ Configuração da API
+## Configuração da API
 
 A URL da API é configurada diretamente no **service** utilizado (`DashboardService`).  
 Exemplo:
