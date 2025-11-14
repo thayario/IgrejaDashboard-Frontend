@@ -1,0 +1,21 @@
+.formulario-membro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 24px;
+}
+
+.acoes-dialogo {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.titulo-dialogo {
+    font-weight: 500;
+}
+
+.espacador {
+    flex: 1 1 auto;
+}

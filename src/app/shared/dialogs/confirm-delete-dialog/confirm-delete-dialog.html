@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Confirmar Exclusão</h2>
+
+<mat-dialog-content class="conteudo-dialogo">
+  <p>
+    Tem certeza de que deseja excluir o cadastro de
+    <strong *ngIf="data.nome" class="texto-maiusculo">{{ data.nome }}</strong>
+    <span>?</span>
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="acoes-dialogo">
+  <button mat-button (click)="cancelar()">Cancelar</button>
+  <button mat-raised-button color="warn" (click)="confirmar()">Excluir</button>
+</mat-dialog-actions>

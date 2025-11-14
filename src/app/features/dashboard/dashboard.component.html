@@ -1,0 +1,124 @@
+<mat-toolbar class="cabecalho">
+  <span class="titulo-cabecalho">Dashboard da Igreja</span>
+  <span class="espacador"></span>
+  <button mat-raised-button color="accent" class="botao-novo-membro" (click)="abrirDialogAdicionar()">
+    <mat-icon>person_add</mat-icon>
+    Novo Membro
+  </button>
+</mat-toolbar>
+
+<div class="container-dashboard">
+  <!-- Cards Dashboard -->
+  <div class="cards-resumo">
+    <mat-card class="card-resumo card-total">
+      <mat-card-header>
+        <mat-card-title>Total de Membros</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="contador">{{ dashboardData?.totalMembros }}</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card-resumo card-masculino">
+      <mat-card-header>
+        <mat-card-title>Masculinos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="contador">{{ dashboardData?.totalMasculino }}</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="card-resumo card-feminino">
+      <mat-card-header>
+        <mat-card-title>Femininos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="contador">{{ dashboardData?.totalFeminino }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Formulário de Busca -->
+  <form [formGroup]="form" (ngSubmit)="buscarPessoa()">
+    <mat-card class="card-tabela">
+      <div class="barra-pesquisa-e-acao">
+        <div class="barra-pesquisa">
+          <mat-form-field appearance="outline" class="input-pesquisa">
+            <mat-icon matPrefix>search</mat-icon>
+            <input
+              matInput
+              placeholder="Pesquisar por nome ou e-mail"
+              formControlName="search"
+            />
+          </mat-form-field>
+
+          <button
+            mat-flat-button
+            color="primary"
+            class="botao-pesquisar"
+            type="submit"
+          >
+            Buscar
+          </button>
+        </div>
+      </div>
+
+      <!-- Tabela de Pessoas -->
+      <div>
+        <ng-container *ngIf="!nenhumResultado; else semResultados">
+          <table mat-table [dataSource]="pessoasDataSource" class="mat-elevation-z8 tabela-pessoas">
+
+            <!-- Nome -->
+            <ng-container matColumnDef="nome">
+              <th mat-header-cell *matHeaderCellDef> Nome </th>
+              <td mat-cell *matCellDef="let pessoa">{{ pessoa.nome }}</td>
+            </ng-container>
+
+            <!-- Email -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let pessoa">{{ pessoa.email }}</td>
+            </ng-container>
+
+            <!-- Sexo -->
+            <ng-container matColumnDef="sexo">
+              <th mat-header-cell *matHeaderCellDef> Sexo </th>
+              <td mat-cell *matCellDef="let pessoa">{{ converterSexo(pessoa.sexo) }}</td>
+            </ng-container>
+
+            <!-- Status -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef> Status </th>
+              <td mat-cell *matCellDef="let pessoa">{{ converterStatus(pessoa.status) }}</td>
+            </ng-container>
+
+            <!-- Ações -->
+            <ng-container matColumnDef="acoes">
+              <th mat-header-cell *matHeaderCellDef> Ações </th>
+              <td mat-cell *matCellDef="let pessoa">
+                <button mat-icon-button color="primary" (click)="abrirDialogEditar(pessoa)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="abrirDialogExcluir(pessoa)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <!-- Cabeçalhos e linhas -->
+            <tr mat-header-row *matHeaderRowDef="colunasTabelaPessoas"></tr>
+            <tr mat-row *matRowDef="let row; columns: colunasTabelaPessoas"></tr>
+
+          </table>
+        </ng-container>
+      </div>
+    </mat-card>
+  </form>
+
+  <ng-template #semResultados>
+    <div class="mensagem-nenhum-resultado">
+      Nenhuma pessoa encontrada.
+    </div>
+  </ng-template>
+
+</div>
