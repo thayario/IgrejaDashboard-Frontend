@@ -1,27 +1,72 @@
-# IgrejaDashboard
+# Igreja Dashboard – Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+Aplicação **Angular 18** para gerenciamento de membros da igreja, integração com a API backend, dashboard de totais e CRUD completo.  
+Utiliza **Angular Material**, **RxJS** e comunicação via **HttpClient**.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📦 Dependências e Versões
 
-## Code scaffolding
+- Angular: 18.2.0 
+- Angular Material: 18.2.14  
+- RxJS: ~7.8.0  
+- TypeScript: ~5.5.2  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> Outras dependências são listadas no `package.json`.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📂 Estrutura do Projeto
+igreja-dashboard/
+├── src/
+│ ├── app/
+│ │ ├── core/
+│ │ ├── features/
+│ │ │ └── dashboard/
+│ │ ├── shared/
+│ │ │ └── dialogs/
+│ │ ├── models/
+│ │ ├── services/
+│ │ └── app.module.ts
+│ └── index.html
+├── angular.json
+├── package.json
+└── tsconfig.json
 
-## Running unit tests
+## ⚙️ Configuração da API
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+A URL da API é configurada diretamente no **service** utilizado (`DashboardService`).  
+Exemplo:
 
-## Running end-to-end tests
+private apiUrl = 'http://localhost:5136/api/pessoas';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+*Ajuste a porta caso seu backend esteja rodando em outra porta.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Rodando a Aplicação
+Pré-requisitos
+
+Angular CLI global instalado:
+
+npm install -g @angular/cli
+
+Passos
+
+Abra o terminal na raiz do projeto frontend igreja-dashboard/.
+
+Instale as dependências:
+
+npm install
+
+
+Execute a aplicação:
+
+ng serve -o
+
+
+ou
+
+npm start
+
+
+O navegador será aberto automaticamente em http://localhost:4200.
